@@ -26,7 +26,6 @@ public class TildaController(IDanClient danClient) : Controller
     {
         var datasetname = "TildaTilsynsrapportAllev1";
         
-        // Gets a generic dataset which can be iterated
         var parameters = new Dictionary<string, string>
         {
             { "aar", "2024" },
