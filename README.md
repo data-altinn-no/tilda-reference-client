@@ -48,7 +48,7 @@ Final step is setting up the application settings. In this example we just regis
 local `appsettings.{environment}.json` file, but any way to set up application settings is valid.
 
 ## Example application settings
-As mentioned in the previous settings, the MaskinportenClient and DanClient looks for their respective
+As mentioned in the previous sections, the MaskinportenClient and DanClient looks for their respective
 application settings, which we have named `"MaskinportenSettings"` and `"DanSettings"`.
 
 ```jsonc
@@ -87,7 +87,7 @@ Then the method `GetDataSet()` can be called to fetch data. This method requires
 and a subject as a base requirement. The equivalent of calling
 `https://api.data.altinn.no/v1/directharvest/TildaTilsynskoordineringv1?subject=112233445` would be
 ```cs
-var result = await GetDataSet("TildaTilsynskoordineringv1", "112233445");
+var result = await danClient.GetDataSet("TildaTilsynskoordineringv1", "112233445");
 ```
 
 The result of the method is a set of Dataset values. These can be iterated over in a loop:

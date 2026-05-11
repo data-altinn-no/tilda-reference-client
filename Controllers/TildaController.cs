@@ -65,7 +65,12 @@ public class TildaController(IDanClient danClient) : Controller
         var entry = new TildaRegistryEntry();
         foreach (var dsv in dataset.Values)
         {
-            var dsvValue = (string)dsv.Value;
+            var dsvValue = dsv.Value.ToString();
+            if (dsvValue is null)
+            {
+                // Handle error etc.
+                continue;
+            }
             if (dsv.Name == "enhetsinformasjon")
             {
                 entry = JsonConvert.DeserializeObject<TildaRegistryEntry>(dsvValue);
