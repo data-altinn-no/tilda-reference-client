@@ -87,7 +87,7 @@ Then the method `GetDataSet()` can be called to fetch data. This method requires
 and a subject as a base requirement. The equivalent of calling
 `https://api.data.altinn.no/v1/directharvest/TildaTilsynskoordineringv1?subject=112233445` would be
 ```cs
-var result = await danClient.GetDataSet("TildaTilsynskoordineringv1", "112233445");
+var dataset = await danClient.GetDataSet("TildaTilsynskoordineringv1", "112233445");
 ```
 
 The result of the method is a set of Dataset values. These can be iterated over in a loop:
@@ -106,7 +106,12 @@ can use these names to deserialize into the models from Dan.Tilda.Models.
 ```csharp
 foreach (var dsv in dataset.Values)
 {
-    var dsvValue = (string)dsv.Value;
+    var dsvValue = dsv.Value.ToString();
+    if (dsvValue is null)
+    {
+        // Handle error etc.
+        continue;
+    }
     if (dsv.Name == "enhetsinformasjon")
     {
         var entry = JsonConvert.DeserializeObject<TildaRegistryEntry>(dsvValue);
