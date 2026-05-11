@@ -38,8 +38,8 @@ further documentation and source code.
 
 The second section registers a DanClient. It first uses the `"DanSettings"` section of the
 application settings, then we set up the deserializer the client uses for a Newtonsoft.Json
-serializer, as the Dan.Tilda.Models package uses Newtonsoft.Json and not System.Text.Json. Can
-be omitted if not using Dan.Tilda.Models for models to deserialise into. Finally we register
+serializer, as the Dan.Tilda.Models package uses Newtonsoft.Json and not System.Text.Json. 
+Can be omitted if not using Dan.Tilda.Models for models to deserialise into. Finally, we register
 the HttpMessageHandler that was registered in the previous step. This will make the DanClient set
 the correct authentication header. See https://github.com/data-altinn-no/altinn-apiclient-dan/ for
 further documentation and source code.
